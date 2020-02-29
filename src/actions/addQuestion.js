@@ -1,4 +1,4 @@
-export const addQuestion = (question, answers) => {
+export const addQuestion = (question = "", answers = []) => {
     return {
         type: 'ADD_QUESTION',
         payload: {

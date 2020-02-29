@@ -1,4 +1,4 @@
-const questionReducer = (questions, answered, action) => {
+const questionReducer = (questions = [], answered = [], action) => {
     switch (action.type) {
         case 'ADD_QUESTION':
             return [...questions, action.payload];

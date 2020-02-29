@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { PersistGate } from 'redux-persist/integration/react'
+import { persistor } from './store';
 
-function App() {
-    const [questions, setQuestions] = useState([]);
 
+const App = () => {
     return (
-        <div>APP</div>
-    )
-}
+        <PersistGate loading={null} persistor={persistor}>
+            <div>App</div>
+        </PersistGate>
+    );
+};
 
 export default App;

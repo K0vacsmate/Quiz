@@ -1,5 +1,23 @@
 import { createStore } from "redux";
+import rootReducer from '../reducers';
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage';
 
-const store = createStore("TO DO");
+const persistConfig = {
+    key: 'root',
+    storage,
+}
 
-export default store;
+const initialState = {
+    questions: [],
+    answered: [],
+    user: "",
+}
+
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+export const store = createStore(persistedReducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+export const persistor = persistStore(store);
+
+
+
+

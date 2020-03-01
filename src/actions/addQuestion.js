@@ -1,8 +1,8 @@
-export const addQuestion = (question = "", answers = []) => {
+export const addQuestion = (title = "", answers = []) => {
     return {
         type: 'ADD_QUESTION',
         payload: {
-            question,
+            title,
             answers
         }
     }
